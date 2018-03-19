@@ -1,0 +1,4 @@
+blue: #6971d5
+yellow: #fed517
+red: #e5525a
+grey: #525252

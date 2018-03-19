@@ -1,0 +1,9 @@
+.pokedex-search-bar {
+  background-color: inherit;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 1em;
+}

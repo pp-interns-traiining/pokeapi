@@ -1,0 +1,14 @@
+.pokedex-search-results {
+  background-color: white;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.pokedex-search-item {
+  padding: 1em;
+  border-bottom: 2px solid #525252;
+  font-weight: bold;
+  text-align: right;
+}

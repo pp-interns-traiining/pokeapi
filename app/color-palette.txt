@@ -2,3 +2,10 @@ blue: #6971d5
 yellow: #fed517
 red: #e5525a
 grey: #525252
+
+max hp: 255
+max attack: 180
+max sp.Atk: 180
+max defense: 230
+max sp.def: 230
+max speed: 180

@@ -6,7 +6,6 @@ class PokedexSearchBarController {
   }
 
   searchPokemon(input) {
-    console.log('is it working', input);
     this.filterPokemon({ input });
   }
 }

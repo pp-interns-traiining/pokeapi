@@ -89,9 +89,7 @@ class PokedexController {
   }
 
   filterPokemon(input) {
-    console.log('filtering:', input);
     this.searchText = input;
-    console.log('filtered', this.searchText);
   }
 }
 

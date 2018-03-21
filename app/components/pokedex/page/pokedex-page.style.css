@@ -2,12 +2,245 @@
   background-color: #fed517;
   height: 100%;
   width: 100%;
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .pokedex-page-2 {
   background-color: #e5525a;
   height: 100%;
   width: 100%;
-  border-radius: 16px;
+  border-radius: 8px;
+  color: white;
+}
+
+.pokedex-page-grid {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 15% 15% 15% 30%;
+}
+
+.pokedex-page-grid > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.pokedex-page-grid > div > h3 {
+  margin-top: 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.pokedex-page-title {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.pokedex-page-item-1 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.pokedex-page-item-2 {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.pokedex-page-item-3 {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.pokedex-page-item-4 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.pokedex-page-item-5 {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.pokedex-page-item-6 {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.pokedex-page-picture {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 3;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 8px;
+}
+.pokedex-page-picture > img {
+  max-width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#pokedex-page-type-1 {
+  grid-column: 3;
+  grid-row: 4;
+  text-align: center;
+  border-radius: 8px;
+  margin: 1em;
+  color: white;
+}
+
+#pokedex-page-type-2 {
+  grid-column: 4;
+  grid-row: 4;
+  text-align: center;
+  border-radius: 8px;
+  margin: 1em;
+  color: white;
+}
+
+.pokedex-type-bug {
+  border: 1em solid #426b39;
+  background-color: #adbd21;
+}
+
+.pokedex-type-dark {
+  border: 1em solid #4a3931;
+  background-color: #735a49;
+}
+
+.pokedex-type-dragon {
+  border: 1em solid #4a3994;
+  background-color: #7a63e7;
+}
+
+.pokedex-type-electric {
+  border: 1em solid #735218;
+  background-color: #ffc630;
+}
+
+.pokedex-type-fairy {
+  border: 1em solid #bd18cf;
+  background-color: #f7b5f7;
+}
+
+.pokedex-type-fighting {
+  border: 1em solid #4a3931;
+  background-color: #a55239;
+}
+
+.pokedex-type-fire {
+  border: 1em solid #732108;
+  background-color: #f75131;
+}
+
+.pokedex-type-flying {
+  border: 1em solid #425294;
+  background-color: #9cadf8;
+}
+
+.pokedex-type-ghost {
+  border: 1em solid #4a3952;
+  background-color: #6362b5;
+}
+
+.pokedex-type-grass {
+  border: 1em solid #426b39;
+  background-color: #7ace52;
+}
+
+.pokedex-type-ground {
+  border: 1em solid #735218;
+  background-color: #d7b55a;
+}
+
+.pokedex-type-ice {
+  border: 1em solid #425294;
+  background-color: #59cfe7;
+}
+
+.pokedex-type-normal {
+  border: 1em solid #525252;
+  background-color: #ada594;
+}
+
+.pokedex-type-poison {
+  border: 1em solid #4a3952;
+  background-color: #b559a5;
+}
+
+.pokedex-type-psychic {
+  border: 1em solid #6a3939;
+  background-color: #ff73a5;
+}
+
+.pokedex-type-rock {
+  border: 1em solid #735218;
+  background-color: #bda559;
+}
+
+.pokedex-type-steel {
+  border: 1em solid #525252;
+  background-color: #adadc6;
+}
+
+.pokedex-type-water {
+  border: 1em solid #425294;
+  background-color: #399cff;
+}
+
+.pokedex-page-description {
+  grid-column: 1 / span 4;
+  grid-row: 5;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 8px;
+  justify-content: flex-start;
+  text-align: left;
+  overflow: auto;
+}
+
+.pokedex-page-grid > .pokedex-page-description > h3 {
+  text-align: left;
+  text-transform: none;
+}
+
+.pokedex-page-1-border {
+  border: 1em solid #e5525a;
+}
+
+.pokedex-page-2-border {
+  border: 1em solid #fed517;
+}
+
+.progressbar-colour > div {
+  background-color: #fed517;
+  color: black;
+}
+
+.pokedex-page-picture-small {
+  height: 100%;
+  width: auto;
+  border: 1em solid #fed517;
+  border-radius: 50%;
+}
+
+#pokedex-page-evos {
+  grid-column: 1 / span 4;
+  grid-row: 5;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 8px;
+  justify-content: space-around;
+  flex-direction: row;
+  overflow: auto;
+}
+
+#pokedex-page-evos > img:hover {
+  background-color: rgba(0, 0, 0, 0.2)
+}
+#pokedex-page-evos > img {
+  cursor: pointer;
 }

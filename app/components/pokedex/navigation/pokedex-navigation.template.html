@@ -1,6 +1,6 @@
 <div class="pokedex-navigation">
-  <button class="pokedex-navigation-previous btn">{{$ctrl.previousEntry}}</button>
-  <p class="pokedex-navigation-tab-1">Page 1</p>
-  <p class="pokedex-navigation-tab-2">Page 2</p>
-  <button class="pokedex-navigation-next btn">{{$ctrl.nextEntry}}</button>
+  <button ng-if="$ctrl.currentId > 1" class="pokedex-navigation-previous btn" ng-click="$ctrl.getOne('http://pokeapi.salestock.net/api/v2/pokemon-species/' + ($ctrl.currentId - 1))">{{+$ctrl.currentId - 1}}</button>
+  <p ng-class="['pokedex-navigation-tab-1', {'pokedex-tab-open': !$ctrl.page}]" ng-click="$ctrl.goToPage1()">Page 1</p>
+  <p ng-class="['pokedex-navigation-tab-2', {'pokedex-tab-open': $ctrl.page}]" ng-click="$ctrl.goToPage2()">Page 2</p>
+  <button ng-if="$ctrl.currentId > 0 && $ctrl.currentId < 721" class="pokedex-navigation-next btn" ng-click="$ctrl.getOne('http://pokeapi.salestock.net/api/v2/pokemon-species/' + (+$ctrl.currentId + 1))">{{+$ctrl.currentId + 1}}</button>
 </div>

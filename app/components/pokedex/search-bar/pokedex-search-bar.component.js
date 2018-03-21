@@ -4,9 +4,17 @@ class PokedexSearchBarController {
     this.orderCategories = ['Dummy', 'Number', 'Type', 'Color', 'Shape', 'Height', 'Weight'];
     console.log('Search bar component ready.');
   }
+
+  searchPokemon(input) {
+    console.log('is it working', input);
+    this.filterPokemon({ input });
+  }
 }
 
 angular.module('pokedex').component('pokedexSearchBar', {
   templateUrl: 'components/pokedex/search-bar/pokedex-search-bar.template.html',
   controller: PokedexSearchBarController,
+  bindings: {
+    filterPokemon: '&',
+  },
 });

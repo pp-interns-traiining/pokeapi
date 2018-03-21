@@ -1,6 +1,85 @@
-<div ng-if="!$ctrl.page" class="pokedex-page-1">
-
+<div ng-show="$ctrl.currentPokemon" ng-if="!$ctrl.page" class="pokedex-page-grid pokedex-page-1">
+  <div class="pokedex-page-title">
+    <h1>{{$ctrl.currentPokemon.name}}</h1>
+    <h2>#{{$ctrl.currentPokemon.number}}</h2>
+  </div>
+  <div class="pokedex-page-item-1">
+    <p>Height:</p><h3>{{$ctrl.currentPokemon.height / 10}}m</h3>
+  </div>
+  <div class="pokedex-page-item-2">
+    <p>Weight:</p><h3>{{$ctrl.currentPokemon.weight / 10}}kg</h3>
+  </div>
+  <div class="pokedex-page-item-3">
+    <p>Sex:</p><h3>{{$ctrl.currentPokemon.genderRate}}</h3>
+    <!-- <p>Sex:</p><h3>{{$ctrl.sex}}</h3> -->
+  </div>
+  <div class="pokedex-page-item-4">
+    <p>Category:</p><h3>{{$ctrl.currentPokemon.genus}} Pokemon</h3>
+  </div>
+  <div class="pokedex-page-item-5">
+    <p>Shape:</p><h3>{{$ctrl.currentPokemon.shape}}</h3>
+  </div>
+  <div class="pokedex-page-item-6">
+    <p>Colour:</p><h3>{{$ctrl.currentPokemon.color}}</h3>
+  </div>
+  <div class="pokedex-page-picture pokedex-page-1-border">
+    <img ng-src="{{$ctrl.currentPokemon.sprite}}"/>
+  </div>
+  <div id="pokedex-page-type-1" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[0]}}']">
+    <h3>{{$ctrl.currentPokemon.types[0]}}</h3>
+  </div>
+  <div id="pokedex-page-type-2" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[1]}}']">
+    <h3>{{$ctrl.currentPokemon.types[1]}}</h3>
+  </div>
+  <div class="pokedex-page-description pokedex-page-1-border">
+    <h3 ng-repeat="entry in $ctrl.currentPokemon.flavorText">
+      {{entry}}
+    </h3>
+  </div>
 </div>
-<div ng-if="$ctrl.page" class="pokedex-page-2">
 
+<div ng-show="$ctrl.currentPokemon" ng-if="$ctrl.page" class="pokedex-page-grid pokedex-page-2">
+  <div class="pokedex-page-title">
+    <h1>{{$ctrl.currentPokemon.name}}</h1>
+    <h2>#{{$ctrl.currentPokemon.number}}</h2>
+  </div>
+  <div class="pokedex-page-item-1">
+    <p>Attack:</p><uib-progressbar type="info" value="$ctrl.currentPokemon.stats.attack" max="150"></uib-progressbar>
+  </div>
+  <div class="pokedex-page-item-2">
+    <p>Sp.Atk:</p><uib-progressbar type="info" value="$ctrl.currentPokemon.stats.spAtk" max="150"></uib-progressbar>
+  </div>
+  <div class="pokedex-page-item-3">
+    <p>Speed:</p><uib-progressbar type="info" value="$ctrl.currentPokemon.stats.speed" max="150"></uib-progressbar>
+  </div>
+  <div class="pokedex-page-item-4">
+    <p>Defense:</p><uib-progressbar type="info" value="$ctrl.currentPokemon.stats.defense" max="200"></uib-progressbar>
+  </div>
+  <div class="pokedex-page-item-5">
+    <p>Sp.Def:</p><uib-progressbar type="info" value="$ctrl.currentPokemon.stats.spDef" max="200"></uib-progressbar>
+  </div>
+  <div class="pokedex-page-item-6">
+    <p>HP:</p><uib-progressbar type="info" value="$ctrl.currentPokemon.stats.hp" max="200"></uib-progressbar>
+  </div>
+  <div class="pokedex-page-picture pokedex-page-2-border">
+    <img ng-src="{{$ctrl.currentPokemon.sprite}}"/>
+  </div>
+  <div id="pokedex-page-type-1" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[0]}}']">
+    <h3>{{$ctrl.currentPokemon.types[0]}}</h3>
+  </div>
+  <div id="pokedex-page-type-2" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[1]}}']">
+    <h3>{{$ctrl.currentPokemon.types[1]}}</h3>
+  </div>
+  <div id="pokedex-page-evos" class="pokedex-page-2-border">
+    <img
+      ng-repeat="pokemon in $ctrl.currentPokemon.evolutionChain"
+      class="pokedex-page-picture-small"
+      ng-click="$ctrl.getOne('http://pokeapi.salestock.net/api/v2/pokemon-species/' + pokemon.id)"
+      ng-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"
+    >
+    <!-- <img class="pokedex-page-picture-small" ng-src="{{$ctrl.imgUrl2}}"> -->
+  </div>
 </div>
+
+<div ng-show="!$ctrl.currentPokemon" ng-if="!$ctrl.page" class="pokedex-page-grid pokedex-page-1"></div>
+<div ng-show="!$ctrl.currentPokemon" ng-if="$ctrl.page" class="pokedex-page-grid pokedex-page-2"></div>

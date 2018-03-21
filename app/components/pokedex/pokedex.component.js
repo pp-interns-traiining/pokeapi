@@ -12,7 +12,7 @@ class PokedexController {
   getAllPokemon() {
     console.log('GETTING ALL POKEMON');
     this.pokeService
-      .getFromDatabase('http://pokeapi.salestock.net/api/v2/pokemon-species')
+      .getFromDatabase('//pokeapi.salestock.net/api/v2/pokemon-species')
       .then(results => {
         this.allPokemon = results;
         console.log(results);

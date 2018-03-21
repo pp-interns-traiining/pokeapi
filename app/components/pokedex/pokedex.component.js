@@ -11,16 +11,16 @@ class PokedexController {
 
   getAllPokemon() {
     console.log('GETTING ALL POKEMON');
-    // this.pokeService
-    //   .getFromDatabase('http://pokeapi.salestock.net/api/v2/pokemon-species')
-    //   .then(results => {
-    //     this.allPokemon = results;
-    //     console.log(results);
-    //   });
-    this.$http.get('pokemon.json').then(results => {
-      console.log('Json:', results);
-      this.allPokemon = results.data;
-    });
+    this.pokeService
+      .getFromDatabase('http://pokeapi.salestock.net/api/v2/pokemon-species')
+      .then(results => {
+        this.allPokemon = results;
+        console.log(results);
+      });
+    // this.$http.get('pokemon.json').then(results => {
+    // console.log('Json:', results);
+    // this.allPokemon = results.data;
+    // });
   }
 
   mapThroughEvoChain(data, evoArray = []) {

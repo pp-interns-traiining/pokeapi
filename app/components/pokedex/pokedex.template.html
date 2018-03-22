@@ -13,4 +13,7 @@
       <pokedex-page page="$ctrl.page" loading-value="$ctrl.loadingValue" loading-max="$ctrl.loadingMax" get-one-pokemon="$ctrl.getOnePokemon(url)" current-pokemon="$ctrl.currentPokemon"></pokedex-page>
     </div>
   </div>
+  <div ng-show="$ctrl.loading" class="pokedex-loading">
+    <div class="pokedex-loading-spinner"></div>
+  </div>
 </div>

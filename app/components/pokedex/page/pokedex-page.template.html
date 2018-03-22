@@ -25,10 +25,10 @@
   <div class="pokedex-page-picture pokedex-page-1-border">
     <img ng-src="{{$ctrl.currentPokemon.sprite}}"/>
   </div>
-  <div id="pokedex-page-type-1" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[0]}}']">
+  <div id="pokedex-page-type-1" ng-class="$ctrl.currentPokemon.types[0]">
     <h3>{{$ctrl.currentPokemon.types[0]}}</h3>
   </div>
-  <div id="pokedex-page-type-2" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[1]}}']">
+  <div id="pokedex-page-type-2" ng-class="$ctrl.currentPokemon.types[1]">
     <h3>{{$ctrl.currentPokemon.types[1]}}</h3>
   </div>
   <div class="pokedex-page-description pokedex-page-1-border">
@@ -64,10 +64,10 @@
   <div class="pokedex-page-picture pokedex-page-2-border">
     <img ng-src="{{$ctrl.currentPokemon.sprite}}"/>
   </div>
-  <div id="pokedex-page-type-1" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[0]}}']">
+  <div id="pokedex-page-type-1" ng-class="$ctrl.currentPokemon.types[0]">
     <h3>{{$ctrl.currentPokemon.types[0]}}</h3>
   </div>
-  <div id="pokedex-page-type-2" ng-class="['pokedex-type-{{$ctrl.currentPokemon.types[1]}}']">
+  <div id="pokedex-page-type-2" ng-class="$ctrl.currentPokemon.types[1]">
     <h3>{{$ctrl.currentPokemon.types[1]}}</h3>
   </div>
   <div id="pokedex-page-evos" class="pokedex-page-2-border">

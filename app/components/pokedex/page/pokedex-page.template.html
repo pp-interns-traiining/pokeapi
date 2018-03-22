@@ -73,11 +73,13 @@
   <div id="pokedex-page-evos" class="pokedex-page-2-border">
     <img
       ng-repeat="pokemon in $ctrl.currentPokemon.evolutionChain"
+      uib-tooltip="{{pokemon.name}}"
+      tooltip-class="pokedex-page-evos-tooltip"
+      tooltip-placement="top"
       class="pokedex-page-picture-small"
       ng-click="$ctrl.getOne('http://pokeapi.salestock.net/api/v2/pokemon-species/' + pokemon.id)"
       ng-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"
     >
-    <!-- <img class="pokedex-page-picture-small" ng-src="{{$ctrl.imgUrl2}}"> -->
   </div>
 </div>
 

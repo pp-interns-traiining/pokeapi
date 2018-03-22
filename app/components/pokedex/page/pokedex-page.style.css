@@ -239,8 +239,21 @@
 }
 
 #pokedex-page-evos > img:hover {
-  background-color: rgba(0, 0, 0, 0.2)
+  background-color: rgba(0, 0, 0, 0.2);
 }
 #pokedex-page-evos > img {
   cursor: pointer;
+}
+
+.tooltip.pokedex-page-evos-tooltip .tooltip-inner {
+  background-color: #fed517;
+  color: #525252;
+  font-family: 'Doppio One', sans-serif;
+  text-transform: capitalize;
+  font-size: 2em;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.tooltip.pokedex-page-evos-tooltip .tooltip-arrow {
+  display: none;
 }

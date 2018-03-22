@@ -10,7 +10,7 @@ class PokedexPageController {
 }
 
 angular.module('pokedex').component('pokedexPage', {
-  templateUrl: '/components/pokedex/page/pokedex-page.template.html',
+  templateUrl: 'components/pokedex/page/pokedex-page.template.html',
   controller: PokedexPageController,
   bindings: {
     page: '<',

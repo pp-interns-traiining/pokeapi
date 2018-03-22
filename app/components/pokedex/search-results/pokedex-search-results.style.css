@@ -12,8 +12,9 @@
   font-weight: bold;
   text-align: right;
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .pokedex-search-item:hover {
-  background-color: rgba(0, 0, 0, 0.2)
+  background-color: rgba(0, 0, 0, 0.2);
 }

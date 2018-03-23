@@ -1,11 +1,10 @@
 var args = require('minimist')(process.argv.slice(2));
-
 var debugMode = !!args.debug;
 
 module.exports = function (config) {
   config.set({
 
-    basePath: '.',
+    basePath: '../',
 
     preprocessors: {
       'app/{,!(bower_components)/**/}!(*spec).js': 'coverage',
@@ -46,7 +45,7 @@ module.exports = function (config) {
     },
 
     coverageReporter: {
-      dir: 'coverage/',
+      dir: 'test/coverage/',
       reporters: [
         {
           type: 'html',

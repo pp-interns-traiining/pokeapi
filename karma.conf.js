@@ -2,14 +2,18 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './app',
+    basePath: '.',
+
+    preprocessors: {
+      'app/{,!(bower_components)/**/}!(*spec).js': 'coverage',
+    },
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'components/**/*.js',
-      'view*/**/*.js'
+      'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/components/pokedex/pokedex.module.js',
+      'app/components/**/*.js',
     ],
 
     autoWatch: true,
@@ -19,16 +23,31 @@ module.exports = function(config) {
     browsers: ['Chrome'],
 
     plugins: [
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
       'karma-jasmine',
-      'karma-junit-reporter'
+      'karma-chrome-launcher',
+      'karma-mocha-reporter',
+      'karma-coverage',
     ],
 
-    junitReporter: {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
+    logLevel: config.LOG_ERROR,
+
+    reporters: ['coverage', 'mocha'],
+
+    mochaReporter: {
+      output: 'full',
+    },
+
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        {
+          type: 'html',
+        },
+        {
+          type: 'text-summary',
+        },
+      ],
+    },
 
   });
 };

@@ -7,7 +7,7 @@ module.exports = function (config) {
     basePath: '../',
 
     preprocessors: {
-      'app/{,!(bower_components)/**/}!(*spec).js': 'coverage',
+      'app/{,!(bower_components)/**/}!(*spec|e2e).js': 'coverage',
     },
 
     files: [
@@ -15,7 +15,7 @@ module.exports = function (config) {
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/components/pokedex/pokedex.module.js',
-      'app/components/**/*.js',
+      'app/components/**/!(*e2e).js',
       'app/services/**/*.js',
     ],
 

@@ -1,5 +1,5 @@
 <div class="pokedex-search-results">
-  <div ng-repeat="result in $ctrl.allPokemon | filter:$ctrl.searchText" class="pokedex-search-item" ng-click="$ctrl.getOne(result.url)">
+  <div ng-repeat="result in $ctrl.allPokemon | filter:$ctrl.searchText" class="pokedex-search-item" ng-click="$ctrl.goToId(result.url.match($ctrl.regExp)[0])">
     <span class="pokedex-search-result-name">{{result.name}} </span>
     <span class="pokedex-search-result-number">#{{("000" + result.url.match($ctrl.regExp)[0]).substr(-3)}}</span>
   </div>

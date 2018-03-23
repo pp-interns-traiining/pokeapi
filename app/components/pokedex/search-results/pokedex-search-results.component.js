@@ -4,9 +4,13 @@ class PokedexSearchResultsController {
     console.log('Search results component ready.');
   }
 
+  goToId(id) {
+    this.goToPokemonId({ id });
+  }
+
   getOne(url) {
     console.log('Getting information from:', url);
-    this.getOnePokemon({ url: url });
+    this.getOnePokemon({ url });
   }
 }
 
@@ -17,5 +21,6 @@ angular.module('pokedex').component('pokedexSearchResults', {
     allPokemon: '<',
     searchText: '<',
     getOnePokemon: '&',
+    goToPokemonId: '&',
   },
 });

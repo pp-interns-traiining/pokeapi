@@ -1,5 +1,6 @@
 class PokedexPageController {
-  constructor() {
+  constructor($routeParams) {
+    this.$routeParams = $routeParams;
     console.log('Page component ready.');
   }
 
@@ -7,7 +8,16 @@ class PokedexPageController {
     console.log('Getting information from:', url);
     this.getOnePokemon({ url });
   }
+  goToId(id) {
+    this.goToPokemonId({ id });
+  }
+
+  init() {
+    this.getOne(`//pokeapi.salestock.net/api/v2/pokemon-species/${this.$routeParams.id}`);
+  }
 }
+
+PokedexPageController.$inject = ['$routeParams'];
 
 angular.module('pokedex').component('pokedexPage', {
   templateUrl: 'components/pokedex/page/pokedex-page.template.html',
@@ -18,5 +28,6 @@ angular.module('pokedex').component('pokedexPage', {
     loadingValue: '<',
     loadingMax: '<',
     getOnePokemon: '&',
+    goToPokemonId: '&',
   },
 });

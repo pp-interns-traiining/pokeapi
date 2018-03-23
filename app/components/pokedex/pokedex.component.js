@@ -1,5 +1,5 @@
 class PokedexController {
-  constructor(pokeService, $http) {
+  constructor(pokeService, $http, $routeParams, $location) {
     this.page = false;
     this.loading = false;
     this.allPokemon = [];
@@ -8,6 +8,10 @@ class PokedexController {
     this.evoData = [];
     this.pokeService = pokeService;
     this.$http = $http;
+    this.$routeParams = $routeParams;
+    this.$location = $location;
+    console.log('routeParams', this.$routeParams);
+    this.getAllPokemon();
   }
 
   getAllPokemon() {
@@ -65,7 +69,7 @@ class PokedexController {
                 data.flavor_text_entries[1].flavor_text,
                 data.flavor_text_entries[25].flavor_text,
               ],
-              genderRate: 'still a mystery',
+              genderRate: data.gender_rate,
               genus: data.genera[0].genus,
               height: secondaryData.height,
               id: data.id,
@@ -94,6 +98,10 @@ class PokedexController {
     }
   }
 
+  goToPokemonId(id) {
+    this.$location.path('/pokemon/' + id);
+  }
+
   goToPage(page) {
     this.page = page;
   }
@@ -103,7 +111,7 @@ class PokedexController {
   }
 }
 
-PokedexController.$inject = ['pokeService', '$http'];
+PokedexController.$inject = ['pokeService', '$http', '$routeParams', '$location'];
 
 angular.module('pokedex').component('pokedex', {
   templateUrl: 'components/pokedex/pokedex.template.html',

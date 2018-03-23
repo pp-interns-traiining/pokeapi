@@ -1,5 +1,8 @@
-//jshint strict: false
-module.exports = function(config) {
+var args = require('minimist')(process.argv.slice(2));
+
+var debugMode = !!args.debug;
+
+module.exports = function (config) {
   config.set({
 
     basePath: '.',
@@ -14,9 +17,14 @@ module.exports = function(config) {
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/components/pokedex/pokedex.module.js',
       'app/components/**/*.js',
+      'app/services/**/*.js',
     ],
 
     autoWatch: true,
+
+    client: {
+      captureConsole: debugMode,
+    },
 
     frameworks: ['jasmine'],
 
@@ -29,7 +37,7 @@ module.exports = function(config) {
       'karma-coverage',
     ],
 
-    logLevel: config.LOG_ERROR,
+    logLevel: debugMode ? config.LOG_DEBUG : config.LOG_ERROR,
 
     reporters: ['coverage', 'mocha'],
 

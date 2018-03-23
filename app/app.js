@@ -5,6 +5,14 @@ angular.module('myApp', ['ngRoute', 'pokedex', 'ui.bootstrap']).config([
   ($locationProvider, $routeProvider) => {
     $locationProvider.hashPrefix('!');
 
+    $routeProvider.when('/', {
+      template: '<pokedex></pokedex>',
+    });
+
+    $routeProvider.when('/pokemon/:id', {
+      template: '<pokedex></pokedex>',
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
   },
 ]);

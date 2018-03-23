@@ -17,7 +17,7 @@
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 15% 15% 15% 30%;
+  grid-template-rows: 20% 15% 15% 15% 35%;
 }
 
 .pokedex-page-grid > div {
@@ -229,13 +229,15 @@
 
 #pokedex-page-evos {
   grid-column: 1 / span 4;
+  grid-gap: 1em;
   grid-row: 5;
   margin: 1em;
   padding: 1em;
   border-radius: 8px;
   justify-content: space-around;
   flex-direction: row;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 #pokedex-page-evos > img:hover {
@@ -243,6 +245,8 @@
 }
 #pokedex-page-evos > img {
   cursor: pointer;
+  height: 100%;
+  width: auto;
 }
 
 .tooltip.pokedex-page-evos-tooltip .tooltip-inner {

@@ -1,3 +1,4 @@
+<div ng-init="$ctrl.init()" ></div>
 <div ng-show="$ctrl.currentPokemon" ng-if="!$ctrl.page" class="pokedex-page-grid pokedex-page-1">
   <div class="pokedex-page-title">
     <h1>{{$ctrl.currentPokemon.name}}</h1>
@@ -10,8 +11,7 @@
     <p>Weight:</p><h3>{{$ctrl.currentPokemon.weight / 10}}kg</h3>
   </div>
   <div class="pokedex-page-item-3">
-    <p>Sex:</p><h3>{{$ctrl.currentPokemon.genderRate}}</h3>
-    <!-- <p>Sex:</p><h3>{{$ctrl.sex}}</h3> -->
+    <p>Sex:</p><h3 ng-if="$ctrl.currentPokemon.genderRate > 0">♂:{{ ( 8 - $ctrl.currentPokemon.genderRate ) * 100 / 8 }}% ♀:{{ $ctrl.currentPokemon.genderRate * 100 / 8 }}%</h3><h3 ng-if="$ctrl.currentPokemon.genderRate < 0">⚲: 100%</h3>
   </div>
   <div class="pokedex-page-item-4">
     <p>Category:</p><h3>{{$ctrl.currentPokemon.genus}} Pokemon</h3>
@@ -77,7 +77,7 @@
       tooltip-class="pokedex-page-evos-tooltip"
       tooltip-placement="top"
       class="pokedex-page-picture-small"
-      ng-click="$ctrl.getOne('http://pokeapi.salestock.net/api/v2/pokemon-species/' + pokemon.id)"
+      ng-click="$ctrl.goToId(pokemon.id)"
       ng-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"
     >
   </div>

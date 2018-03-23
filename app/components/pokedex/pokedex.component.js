@@ -1,16 +1,13 @@
 class PokedexController {
-  constructor(pokeService, $http, $routeParams, $location) {
+  constructor(pokeService, $http, $location) {
     this.page = false;
     this.loading = false;
     this.allPokemon = [];
     this.searchText = '';
-    this.currentPokemon = '';
     this.evoData = [];
     this.pokeService = pokeService;
     this.$http = $http;
-    this.$routeParams = $routeParams;
     this.$location = $location;
-    console.log('routeParams', this.$routeParams);
     this.getAllPokemon();
   }
 
@@ -53,48 +50,16 @@ class PokedexController {
       return;
     } else {
       this.loading = true;
-      this.pokeService.getOnePokemon(url).then(data => {
-        this.pokeService.getOnePokemon(data.varieties[0].pokemon.url).then(secondaryData => {
-          this.pokeService.getOnePokemon(data.evolution_chain.url).then(evolutionData => {
-            this.mapThroughEvoChain(evolutionData.chain, [
-              {
-                name: evolutionData.chain.species.name,
-                id: evolutionData.chain.species.url.match(/(?<!\w)\d+/)[0],
-              },
-            ]);
-            this.currentPokemon = {
-              color: data.color.name,
-              evolutionChain: this.evoData,
-              flavorText: [
-                data.flavor_text_entries[1].flavor_text,
-                data.flavor_text_entries[25].flavor_text,
-              ],
-              genderRate: data.gender_rate,
-              genus: data.genera[0].genus,
-              height: secondaryData.height,
-              id: data.id,
-              number: `000${data.id}`.substr(-3),
-              name: data.name,
-              shape: data.shape.name,
-              sprite: secondaryData.sprites.front_default,
-              stats: {
-                attack: secondaryData.stats[4].base_stat,
-                spAtk: secondaryData.stats[2].base_stat,
-                speed: secondaryData.stats[0].base_stat,
-                defense: secondaryData.stats[3].base_stat,
-                spDef: secondaryData.stats[1].base_stat,
-                hp: secondaryData.stats[5].base_stat,
-              },
-              types: secondaryData.types
-                .sort((a, b) => a.slot - b.slot)
-                .map(item => item.type.name),
-              weight: secondaryData.weight,
-            };
-            console.log(this.currentPokemon);
-            this.loading = false;
-          });
-        });
-      });
+      this.pokeService.getOnePokemon(url).then(
+        data => {
+          this.currentPokemon = data;
+          this.loading = false;
+        },
+        err => {
+          console.log(err);
+          this.loading = false;
+        },
+      );
     }
   }
 
@@ -109,11 +74,18 @@ class PokedexController {
   filterPokemon(input) {
     this.searchText = input;
   }
+
+  currentPokemonButton() {
+    console.log(this);
+  }
 }
 
-PokedexController.$inject = ['pokeService', '$http', '$routeParams', '$location'];
+PokedexController.$inject = ['pokeService', '$http', '$location'];
 
 angular.module('pokedex').component('pokedex', {
   templateUrl: 'components/pokedex/pokedex.template.html',
   controller: PokedexController,
+  bindings: {
+    currentPokemon: '=',
+  },
 });

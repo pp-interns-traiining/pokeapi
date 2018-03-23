@@ -4,16 +4,12 @@ class PokedexPageController {
     console.log('Page component ready.');
   }
 
-  getOne(url) {
-    console.log('Getting information from:', url);
-    this.getOnePokemon({ url });
-  }
   goToId(id) {
     this.goToPokemonId({ id });
   }
 
-  init() {
-    this.getOne(`//pokeapi.salestock.net/api/v2/pokemon-species/${this.$routeParams.id}`);
+  currentPokemonButton() {
+    console.log(this);
   }
 }
 
@@ -25,9 +21,6 @@ angular.module('pokedex').component('pokedexPage', {
   bindings: {
     page: '<',
     currentPokemon: '<',
-    loadingValue: '<',
-    loadingMax: '<',
-    getOnePokemon: '&',
     goToPokemonId: '&',
   },
 });

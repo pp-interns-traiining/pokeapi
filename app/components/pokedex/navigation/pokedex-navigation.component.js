@@ -24,7 +24,6 @@ angular.module('pokedex').component('pokedexNavigation', {
     page: '<',
     onChange: '&',
     currentId: '<',
-    getOnePokemon: '&',
     goToPokemonId: '&',
   },
 });

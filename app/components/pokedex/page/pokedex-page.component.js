@@ -1,19 +1,12 @@
 class PokedexPageController {
-  constructor($routeParams) {
-    this.$routeParams = $routeParams;
+  constructor() {
     console.log('Page component ready.');
   }
 
-  goToId(id) {
-    this.goToPokemonId({ id });
-  }
-
-  currentPokemonButton() {
+  button() {
     console.log(this);
   }
 }
-
-PokedexPageController.$inject = ['$routeParams'];
 
 angular.module('pokedex').component('pokedexPage', {
   templateUrl: 'components/pokedex/page/pokedex-page.template.html',
@@ -21,6 +14,5 @@ angular.module('pokedex').component('pokedexPage', {
   bindings: {
     page: '<',
     currentPokemon: '<',
-    goToPokemonId: '&',
   },
 });

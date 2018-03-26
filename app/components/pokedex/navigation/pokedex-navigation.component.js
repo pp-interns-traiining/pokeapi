@@ -12,9 +12,6 @@ class PokedexNavigationController {
     console.log('Getting information from:', url);
     this.getOnePokemon({ url });
   }
-  goToId(id) {
-    this.goToPokemonId({ id });
-  }
 }
 
 angular.module('pokedex').component('pokedexNavigation', {
@@ -24,6 +21,5 @@ angular.module('pokedex').component('pokedexNavigation', {
     page: '<',
     onChange: '&',
     currentId: '<',
-    goToPokemonId: '&',
   },
 });

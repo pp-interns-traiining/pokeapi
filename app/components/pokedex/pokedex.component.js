@@ -11,6 +11,10 @@ class PokedexController {
     this.getAllPokemon();
   }
 
+  $onChanges(change) {
+    console.log(change);
+  }
+
   getAllPokemon() {
     console.log('GETTING ALL POKEMON');
     // this.pokeService
@@ -52,6 +56,7 @@ class PokedexController {
       this.loading = true;
       this.pokeService.getOnePokemon(url).then(
         data => {
+          console.log(data);
           this.currentPokemon = data;
           this.loading = false;
         },
@@ -61,10 +66,6 @@ class PokedexController {
         },
       );
     }
-  }
-
-  goToPokemonId(id) {
-    this.$location.path('/pokemon/' + id);
   }
 
   goToPage(page) {
@@ -78,14 +79,18 @@ class PokedexController {
   currentPokemonButton() {
     console.log(this);
   }
+
+  setCurrentPokemon(pkmn) {
+    this.currentPokemon = pkmn;
+  }
 }
 
 PokedexController.$inject = ['pokeService', '$http', '$location'];
 
-angular.module('pokedex').component('pokedex', {
+angular.module('pokedex').component('pokedexBase', {
   templateUrl: 'components/pokedex/pokedex.template.html',
   controller: PokedexController,
   bindings: {
-    currentPokemon: '=',
+    currentPokemon: '<',
   },
 });

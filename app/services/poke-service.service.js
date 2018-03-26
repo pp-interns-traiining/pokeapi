@@ -35,8 +35,15 @@ class PokeService {
   }
 
   getOnePokemon(url) {
-    return this.$http.get(url).then(response => {
-      return this.$http.get(response.data.varieties[0].pokemon.url).then(secondaryResponse => {
+    console.log('loading', url);
+    let response;
+    return this.$http
+      .get(url)
+      .then(responseData => {
+        response = responseData;
+        return this.$http.get(responseData.data.varieties[0].pokemon.url);
+      })
+      .then(secondaryResponse => {
         // this.pokeService.getOnePokemon(data.evolution_chain.url).then(evolutionData => {
         //   this.mapThroughEvoChain(evolutionData.chain, [
         //     {
@@ -44,7 +51,7 @@ class PokeService {
         //       id: evolutionData.chain.species.url.match(/(?<!\w)\d+/)[0],
         //     },
         //   ]);
-        return {
+        const pokeData = {
           color: response.data.color.name,
           // evolutionChain: this.evoData,
           flavorText: [
@@ -72,8 +79,9 @@ class PokeService {
             .map(item => item.type.name),
           weight: secondaryResponse.data.weight,
         };
+        console.log('complete', pokeData);
+        return pokeData;
       });
-    });
   }
 }
 

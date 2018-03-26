@@ -1,6 +1,6 @@
 <div class="pokedex-navigation">
-  <button ng-if="$ctrl.currentId > 1" class="pokedex-navigation-previous btn" ng-click="$ctrl.goToId($ctrl.currentId - 1)">◀#{{+$ctrl.currentId - 1}}</button>
+  <button ng-if="$ctrl.currentId > 1" class="pokedex-navigation-previous btn" ui-sref="pokemon({pokemonId: $ctrl.currentId - 1})">◀#{{+$ctrl.currentId - 1}}</button>
   <p ng-class="['pokedex-navigation-tab-1', {'pokedex-tab-open': !$ctrl.page}]" ng-click="$ctrl.goToPage1()"><span>Page 1</span></p>
   <p ng-class="['pokedex-navigation-tab-2', {'pokedex-tab-open': $ctrl.page}]" ng-click="$ctrl.goToPage2()"><span>Page 2</span></p>
-  <button ng-if="$ctrl.currentId > 0 && $ctrl.currentId < 721" class="pokedex-navigation-next btn" ng-click="$ctrl.goToId(+$ctrl.currentId + 1)">#{{+$ctrl.currentId + 1}}▶</button>
+  <button ng-if="$ctrl.currentId > 0 && $ctrl.currentId < 721" class="pokedex-navigation-next btn" ui-sref="pokemon({pokemonId: $ctrl.currentId + 1})">#{{+$ctrl.currentId + 1}}▶</button>
 </div>

@@ -1,5 +1,4 @@
-<!-- <div ng-init="$ctrl.init()" ></div> -->
-<button ng-click="$ctrl.currentPokemonButton()">clcik</button>
+<button ng-click="$ctrl.button()">click</button>
 
 <div ng-show="$ctrl.currentPokemon" ng-if="!$ctrl.page" class="pokedex-page-grid pokedex-page-1">
   <div class="pokedex-page-title">
@@ -79,12 +78,11 @@
       tooltip-class="pokedex-page-evos-tooltip"
       tooltip-placement="top"
       class="pokedex-page-picture-small"
-      ng-click="$ctrl.goToId(pokemon.id)"
+      ui-sref="pokemon({pokemonId: pokemon.id})"
       ng-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"
     >
   </div>
 </div>
-<!-- <ui-view></ui-view> -->
 
 <div ng-show="!$ctrl.currentPokemon" ng-if="!$ctrl.page" class="pokedex-page-grid pokedex-page-1"></div>
 <div ng-show="!$ctrl.currentPokemon" ng-if="$ctrl.page" class="pokedex-page-grid pokedex-page-2"></div>

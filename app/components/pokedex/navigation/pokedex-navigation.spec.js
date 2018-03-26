@@ -2,7 +2,7 @@ describe('Navigation:', () => {
   let $componentController;
 
   beforeEach(module('pokedex'));
-  beforeEach(inject(function(_$componentController_) {
+  beforeEach(inject((_$componentController_) => {
     $componentController = _$componentController_;
   }));
 
@@ -26,7 +26,7 @@ describe('Navigation:', () => {
 
     ctrl.goToPage2();
 
-    expect(onChangeSpy).toHaveBeenCalledWith({ page:true });
+    expect(onChangeSpy).toHaveBeenCalledWith({ page: true });
   });
 
   it('Gets one pokemon', () => {
@@ -46,5 +46,4 @@ describe('Navigation:', () => {
 
     expect(goSpy).toHaveBeenCalledWith({ id: 123 });
   });
-
 });

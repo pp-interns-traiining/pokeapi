@@ -21,6 +21,5 @@ angular.module('pokedex').component('pokedexSearchResults', {
     allPokemon: '<',
     searchText: '<',
     getOnePokemon: '&',
-    goToPokemonId: '&',
   },
 });

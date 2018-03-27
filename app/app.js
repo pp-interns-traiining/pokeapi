@@ -1,5 +1,5 @@
 // Declare app level module which depends on views, and components
-angular.module('myApp', ['ngRoute', 'pokedex', 'ui.bootstrap']).config([
+angular.module('myApp', ['ngRoute', 'pokedex', 'ui.bootstrap', 'ui.router']).config([
   '$locationProvider',
   '$routeProvider',
   ($locationProvider, $routeProvider) => {

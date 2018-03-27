@@ -261,3 +261,19 @@
 .tooltip.pokedex-page-evos-tooltip .tooltip-arrow {
   display: none;
 }
+
+.pokedex-page-1-shiny-button {
+  position: absolute;
+  height: 3em;
+  width: 3em;
+  background-color: #e5525a;
+  border-radius: 50%;
+}
+
+.pokedex-page-2-shiny-button {
+  position: absolute;
+  height: 3em;
+  width: 3em;
+  background-color: #fed517;
+  border-radius: 50%;
+}

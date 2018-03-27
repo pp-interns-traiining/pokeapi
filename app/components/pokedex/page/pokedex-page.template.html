@@ -1,6 +1,4 @@
-<button ng-click="$ctrl.button()">click</button>
-
-<div ng-show="$ctrl.currentPokemon" ng-if="!$ctrl.page" class="pokedex-page-grid pokedex-page-1">
+<div ng-init="$ctrl.init()" ng-show="$ctrl.currentPokemon" ng-if="!$ctrl.$rootScope.page" class="pokedex-page-grid pokedex-page-1">
   <div class="pokedex-page-title">
     <h1>{{$ctrl.currentPokemon.name}}</h1>
     <h2>#{{$ctrl.currentPokemon.number}}</h2>
@@ -24,7 +22,9 @@
     <p>Colour:</p><h3>{{$ctrl.currentPokemon.color}}</h3>
   </div>
   <div class="pokedex-page-picture pokedex-page-1-border">
-    <img ng-src="{{$ctrl.currentPokemon.sprite}}"/>
+    <button ng-show="$ctrl.currentPokemon.shiny_sprite" ng-click="$ctrl.shinyToggle()" class="pokedex-page-1-shiny-button"></button>
+    <img ng-show="!$ctrl.shiny" ng-src="{{$ctrl.currentPokemon.sprite}}"/>
+    <img ng-show="$ctrl.shiny" ng-src="{{$ctrl.currentPokemon.shiny_sprite}}"/>
   </div>
   <div id="pokedex-page-type-1" ng-class="$ctrl.currentPokemon.types[0]">
     <h3>{{$ctrl.currentPokemon.types[0]}}</h3>
@@ -39,7 +39,7 @@
   </div>
 </div>
 
-<div ng-show="$ctrl.currentPokemon" ng-if="$ctrl.page" class="pokedex-page-grid pokedex-page-2">
+<div ng-show="$ctrl.currentPokemon" ng-if="$ctrl.$rootScope.page" class="pokedex-page-grid pokedex-page-2">
   <div class="pokedex-page-title">
     <h1>{{$ctrl.currentPokemon.name}}</h1>
     <h2>#{{$ctrl.currentPokemon.number}}</h2>
@@ -63,7 +63,9 @@
     <p>HP:</p><uib-progressbar type="info" value="$ctrl.currentPokemon.stats.hp" max="200"></uib-progressbar>
   </div>
   <div class="pokedex-page-picture pokedex-page-2-border">
-    <img ng-src="{{$ctrl.currentPokemon.sprite}}"/>
+    <button ng-show="$ctrl.currentPokemon.shiny_sprite" ng-click="$ctrl.shinyToggle()" class="pokedex-page-2-shiny-button"></button>
+    <img ng-show="!$ctrl.shiny" ng-src="{{$ctrl.currentPokemon.sprite}}"/>
+    <img ng-show="$ctrl.shiny" ng-src="{{$ctrl.currentPokemon.shiny_sprite}}"/>
   </div>
   <div id="pokedex-page-type-1" ng-class="$ctrl.currentPokemon.types[0]">
     <h3>{{$ctrl.currentPokemon.types[0]}}</h3>
@@ -84,5 +86,5 @@
   </div>
 </div>
 
-<div ng-show="!$ctrl.currentPokemon" ng-if="!$ctrl.page" class="pokedex-page-grid pokedex-page-1"></div>
-<div ng-show="!$ctrl.currentPokemon" ng-if="$ctrl.page" class="pokedex-page-grid pokedex-page-2"></div>
+<div ng-show="!$ctrl.currentPokemon" ng-if="!$ctrl.$rootScope.page" class="pokedex-page-grid pokedex-page-1"></div>
+<div ng-show="!$ctrl.currentPokemon" ng-if="$ctrl.$rootScope.page" class="pokedex-page-grid pokedex-page-2"></div>

@@ -1,5 +1,8 @@
 class PokedexNavigationController {
-  constructor() {
+  constructor($rootScope, $location) {
+    this.$rootScope = $rootScope;
+    this.$location = $location;
+
     console.log('Navigation component ready.');
   }
   goToPage1() {
@@ -14,12 +17,12 @@ class PokedexNavigationController {
   }
 }
 
+PokedexNavigationController.$inject = ['$rootScope', '$location'];
+
 angular.module('pokedex').component('pokedexNavigation', {
   templateUrl: 'components/pokedex/navigation/pokedex-navigation.template.html',
   controller: PokedexNavigationController,
   bindings: {
-    page: '<',
     onChange: '&',
-    currentId: '<',
   },
 });

@@ -26,10 +26,12 @@ class PokeService {
   getFromDatabase(url, results = []) {
     if (!url) return results;
     let res = results;
-    return this.$http.get(url).then(response => {
-      let loadingValue = Math.ceil(res.length / 20) + 1;
-      let loadingMax = Math.ceil(response.data.count / 20);
-      console.log(`Searching: ${loadingValue} / ${loadingMax}`);
+    return this.$http.get(url).then((response) => {
+      // todo: Extract this into another method so that it can be tested independently of the
+      // $http service
+      this.loadingValue = Math.ceil(res.length / 20) + 1;
+      this.loadingMax = Math.ceil(response.data.count / 20);
+      console.log(`Searching: ${this.loadingValue} / ${this.loadingMax}`);
       res = [...results, ...response.data.results];
       return this.getFromDatabase(response.data.next, res);
     });

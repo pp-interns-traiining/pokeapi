@@ -1,9 +1,11 @@
 describe('Navigation:', () => {
   let $componentController;
+  let $rootScope;
 
   beforeEach(module('pokedex'));
-  beforeEach(inject((_$componentController_) => {
+  beforeEach(inject((_$componentController_, _$rootScope_) => {
     $componentController = _$componentController_;
+    $rootScope = _$rootScope_;
   }));
 
   it('Instantiates', () => {
@@ -12,38 +14,18 @@ describe('Navigation:', () => {
   });
 
   it('Goes to page 1', () => {
-    const onChangeSpy = jasmine.createSpy('onChange');
-    const ctrl = $componentController('pokedexNavigation', null, { onChange: onChangeSpy });
+    const ctrl = $componentController('pokedexNavigation');
 
     ctrl.goToPage1();
 
-    expect(onChangeSpy).toHaveBeenCalledWith({ page: false });
+    expect($rootScope.page).toBe(false);
   });
 
   it('Goes to page 2', () => {
-    const onChangeSpy = jasmine.createSpy('onChange');
-    const ctrl = $componentController('pokedexNavigation', null, { onChange: onChangeSpy });
+    const ctrl = $componentController('pokedexNavigation');
 
     ctrl.goToPage2();
 
-    expect(onChangeSpy).toHaveBeenCalledWith({ page: true });
-  });
-
-  it('Gets one pokemon', () => {
-    const getSpy = jasmine.createSpy('getOnePokemon');
-    const ctrl = $componentController('pokedexNavigation', null, { getOnePokemon: getSpy });
-
-    ctrl.getOne('testUrl');
-
-    expect(getSpy).toHaveBeenCalledWith({ url: 'testUrl' });
-  });
-
-  it('Goes to pokemon by id', () => {
-    const goSpy = jasmine.createSpy('goToPokemonId');
-    const ctrl = $componentController('pokedexNavigation', null, { goToPokemonId: goSpy });
-
-    ctrl.goToId(123);
-
-    expect(goSpy).toHaveBeenCalledWith({ id: 123 });
+    expect($rootScope.page).toBe(true);
   });
 });

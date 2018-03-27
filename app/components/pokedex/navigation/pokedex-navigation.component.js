@@ -6,14 +6,10 @@ class PokedexNavigationController {
     console.log('Navigation component ready.');
   }
   goToPage1() {
-    this.onChange({ page: false });
+    this.$rootScope.page = false;
   }
   goToPage2() {
-    this.onChange({ page: true });
-  }
-  getOne(url) {
-    console.log('Getting information from:', url);
-    this.getOnePokemon({ url });
+    this.$rootScope.page = true;
   }
 }
 
@@ -22,7 +18,4 @@ PokedexNavigationController.$inject = ['$rootScope', '$location'];
 angular.module('pokedex').component('pokedexNavigation', {
   templateUrl: 'components/pokedex/navigation/pokedex-navigation.template.html',
   controller: PokedexNavigationController,
-  bindings: {
-    onChange: '&',
-  },
 });

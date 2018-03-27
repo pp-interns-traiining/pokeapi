@@ -1,30 +1,30 @@
 // PROBABLY DOESN'T WORK
-
-describe('Search Results:', () => {
+//
+describe('Pokedex Base:', () => {
   let $componentController;
-  let httpBackend;
 
   beforeEach(module('pokedex'));
-  beforeEach(inject((_$componentController_, $httpBackend) => {
+  beforeEach(inject((_$componentController_) => {
     $componentController = _$componentController_;
-    httpBackend = $httpBackend;
   }));
 
   it('Instantiates', () => {
-    const ctrl = $componentController('pokedex');
+    const ctrl = $componentController('pokedexBase');
     expect(ctrl).toBeDefined();
   });
 
-  it('Goes to pokemon by id', () => {
-    const ctrl = $componentController('pokedex');
-    const allPokemon = 721;
+  it('Populates a list of pokemon', () => {
+    const ctrl = $componentController('pokedexBase');
 
-    httpBackend.whenGet('testing').respond(allPokemon);
-
-    ctrl.getAllPokemon('testing').then((response) => {
-      expect(response.length).toEqual(allPokemon);
+    ctrl.getAllPokemon().then(() => {
+      expect(ctrl.allPokemon.length).toBe(721);
     });
-
-    httpBackend.flush();
   });
+
+  it('Takes in a word to filter by', () => {
+    const ctrl = $componentController('pokedexBase');
+
+    ctrl.filterPokemon('Drifloon')
+    expect(ctrl.searchText).toBe('Drifloon');
+  })
 });

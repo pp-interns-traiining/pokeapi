@@ -1,13 +1,13 @@
 <div class="pokedex-container">
   <div class="pokedex-main">
     <div class="pokedex-search-results-container">
-      <pokedex-search-results search-text="$ctrl.searchText" all-pokemon="$ctrl.allPokemon" get-one-pokemon="$ctrl.getOnePokemon(url)"></pokedex-search-results>
+      <pokedex-search-results search-text="$ctrl.searchText" all-pokemon="$ctrl.allPokemon"></pokedex-search-results>
     </div>
     <div class="pokedex-search-bar-container">
       <pokedex-search-bar filter-pokemon="$ctrl.filterPokemon(input)"></pokedex-search-bar>
     </div>
     <div class="pokedex-navigation-container">
-      <pokedex-navigation page="$ctrl.page" on-change="$ctrl.goToPage(page)" current-id="$ctrl.currentPokemon.id"></pokedex-navigation>
+      <pokedex-navigation page="$ctrl.page" on-page-change="$ctrl.goToPage(page)"></pokedex-navigation>
     </div>
     <div class="pokedex-page-container">
       <ui-view></ui-view>

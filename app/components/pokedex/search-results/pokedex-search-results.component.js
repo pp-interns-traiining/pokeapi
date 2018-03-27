@@ -1,16 +1,7 @@
 class PokedexSearchResultsController {
   constructor() {
-    this.regExp = /(?<!\w)\d+/;
+    this.regExp = /\/(\d+)/i;
     console.log('Search results component ready.');
-  }
-
-  goToId(id) {
-    this.goToPokemonId({ id });
-  }
-
-  getOne(url) {
-    console.log('Getting information from:', url);
-    this.getOnePokemon({ url });
   }
 }
 

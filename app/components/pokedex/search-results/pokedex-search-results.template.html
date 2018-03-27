@@ -1,6 +1,6 @@
 <div class="pokedex-search-results">
-  <div ng-repeat="result in $ctrl.allPokemon | filter:$ctrl.searchText" class="pokedex-search-item" ui-sref="pokemon({pokemonId: result.url.match($ctrl.regExp)[0]})">
+  <div ng-repeat="result in $ctrl.allPokemon | filter:$ctrl.searchText" class="pokedex-search-item" ui-sref="pokemon({pokemonId: result.url.match($ctrl.regExp)[1]})">
     <span class="pokedex-search-result-name">{{result.name}} </span>
-    <span class="pokedex-search-result-number">#{{("000" + result.url.match($ctrl.regExp)[0]).substr(-3)}}</span>
+    <span class="pokedex-search-result-number">#{{("000" + result.url.match($ctrl.regExp)[1]).substr(-3)}}</span>
   </div>
 </div>

@@ -17,6 +17,9 @@ class PokedexController {
     $transitions.onFinish({}, () => {
       this.loading = false;
     });
+    $transitions.onError({}, () => {
+      this.loading = false;
+    });
   }
 
   getAllPokemon() {
@@ -27,14 +30,10 @@ class PokedexController {
     //     this.allPokemon = results;
     //     console.log(results);
     //   });
-    this.$http.get('pokemon.json').then((results) => {
+    return this.$http.get('pokemon.json').then((results) => {
       console.log('Json:', results);
       this.allPokemon = results.data;
     });
-  }
-
-  goToPage(page) {
-    this.$rootScope.page = page;
   }
 
   filterPokemon(input) {

@@ -53,7 +53,7 @@ class PokeService {
         this.mapThroughEvoChain(evolutionData.data.chain, [
           {
             name: evolutionData.data.chain.species.name,
-            id: evolutionData.data.chain.species.url.match(/\/(\d+)/)[0],
+            id: evolutionData.data.chain.species.url.match(/\/(\d+)/)[1],
           },
         ]);
         const pokeData = {

@@ -235,15 +235,22 @@
   padding: 1em;
   border-radius: 8px;
   justify-content: space-around;
-  flex-direction: row;
-  overflow-x: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
   overflow-y: hidden;
+  overflow-x: auto;
 }
 
-#pokedex-page-evos > img:hover {
+.pokedex-img-container {
+  height: 100%;
+  text-align: center;
+}
+
+#pokedex-page-evos > div > img:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
-#pokedex-page-evos > img {
+#pokedex-page-evos > div > img {
+  margin: 0 1em 1em 0;
   cursor: pointer;
   height: 100%;
   width: auto;

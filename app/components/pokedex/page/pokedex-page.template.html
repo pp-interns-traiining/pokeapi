@@ -74,15 +74,16 @@
     <h3>{{$ctrl.currentPokemon.types[1]}}</h3>
   </div>
   <div id="pokedex-page-evos" class="pokedex-page-2-border">
-    <img
-      ng-repeat="pokemon in $ctrl.currentPokemon.evolutionChain"
+    <div ng-repeat="pokemon in $ctrl.currentPokemon.evolutionChain" class="pokedex-img-container">
+      <img
       uib-tooltip="{{pokemon.name}}"
       tooltip-class="pokedex-page-evos-tooltip"
       tooltip-placement="top"
       class="pokedex-page-picture-small"
       ui-sref="pokemon({pokemonId: pokemon.id})"
       ng-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"
-    >
+      >
+    </div>
   </div>
 </div>
 

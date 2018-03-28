@@ -1,7 +1,7 @@
 # Ben's Cool Pokedex - Kalos Edition
 ### Ben's Cool Pokedex gets data from an old version of PokeApi as the Docker image for the latest version didn't want to play nice with his computer. For that reason, only Pokemon up to generation VI can be looked up, and there are no shiny sprites for anything after generation V.
 
-* Welcome to my (Ben's) cool Pokedex. To use it, just clone the most up-to-date repository to your own machine and run `npm install`. this should equip you with everything you need to run the Pokedex - just navigate to `localhost:5000/#!/pokemon` and have a go!
+* Welcome to my (Ben's) cool Pokedex. To use it, just clone the most up-to-date repository to your own machine and run `npm install`. this should equip you with everything you need to run the Pokedex - just navigate to `localhost:5000/#!/pokemon/1` and have a go!
 
 * The search component allows you to filter the list of Pokemon by name or number - just type something in and click the green button to see your filtered list.
 
